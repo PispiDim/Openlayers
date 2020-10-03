@@ -77,7 +77,6 @@ function getkleida(){
     }   
 }
 
-
 map.on('pointermove', function(evt){
   var coord = evt.coordinate;
   var fl = flwgs84toed50(coord[1], coord[0]);
@@ -85,10 +84,10 @@ map.on('pointermove', function(evt){
   var ArmyCoord = UTM[2] + UTM[3] + UTM[4] + UTM[5];
   if (kleida != null) {
     var krypto = ektelesiergasias(ArmyCoord);
-    document.querySelector("#mouse-position").textContent = krypto;
+    document.querySelector("#mouse-position").textContent = UTM[1] + " " + krypto;
   }
   else{
-    document.querySelector("#mouse-position").textContent = ArmyCoord;
+    document.querySelector("#mouse-position").textContent = UTM[1] + " " + UTM[2] + UTM[3] + " " + UTM[4] + " " + UTM[5];
     document.querySelector("#mouse-click").textContent = "";
   }
 });
@@ -100,7 +99,7 @@ map.on('click', function(evt){
     var ArmyCoord = UTM[2] + UTM[3] + UTM[4] + UTM[5];    
     if (kleida != null) {
       var krypto = ektelesiergasias(ArmyCoord);
-      document.querySelector("#mouse-click").textContent = ArmyCoord + " : " + krypto;
+      document.querySelector("#mouse-click").textContent = UTM[1] + " " + UTM[2] + UTM[3] + " " + UTM[4] + " " + UTM[5] + " : " + UTM[1] + " " + krypto;
     }
 });
 
