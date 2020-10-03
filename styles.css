@@ -21,10 +21,18 @@ body {
   right: 15px;
 }
 
+.mouse-click {
+  position: absolute;
+  float: right;
+  top: 20px;
+  right: 15px;
+}
+
+
 .button-insert {
   position: absolute;
   float: right;
-  top: 40px;
+  top: 50px;
   right: 15px;
 }
 

@@ -74,20 +74,32 @@ function getkleida(){
 
 map.on('pointermove', function(evt){
   var coord = evt.coordinate;
-  console.log(coord);
   var fl = flwgs84toed50(coord[0], coord[1]);
   var UTM = fl2EDMGRS(fl[0], fl[1]);
   var ArmyCoord = UTM[2] + UTM[3] + UTM[4] + UTM[5];
-  console.log(ArmyCoord);
-  
   if (kleida != null) {
     var krypto = ektelesiergasias(ArmyCoord);
-    console.log(krypto);
     document.querySelector("#mouse-position").textContent = krypto;
   }
   else{
     document.querySelector("#mouse-position").textContent = ArmyCoord;
+    document.querySelector("#mouse-click").textContent = "";
   }
+});
+
+map.on('click', function(evt){
+    var coord = evt.coordinate;
+    console.log(coord);
+    var fl = flwgs84toed50(coord[0], coord[1]);
+    var UTM = fl2EDMGRS(fl[0], fl[1]);
+    var ArmyCoord = UTM[2] + UTM[3] + UTM[4] + UTM[5];
+    console.log(ArmyCoord);
+    
+    if (kleida != null) {
+      var krypto = ektelesiergasias(ArmyCoord);
+      console.log(krypto);
+      document.querySelector("#mouse-click").textContent = ArmyCoord + " : " + krypto;
+    }
 });
 
 function ektelesiergasias(syntetagmeni){ 
