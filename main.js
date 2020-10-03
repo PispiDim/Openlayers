@@ -13,6 +13,7 @@ const statheres  = [['0','1','2','3','4','5','6','7','8','9'],
                     [,'C','F','J','M','','Q','T','W','Z']]; 
 
 
+                    
 var map = new ol.Map({
   layers: [
     new ol.layer.Tile({
@@ -30,7 +31,16 @@ var map = new ol.Map({
 document.querySelector("#button-insert").addEventListener("click", emfanisi);
 
 function emfanisi(){
-    document.querySelector("#eisagogi").style.visibility = "visible";
+    if (kleida == null){
+        document.querySelector("#eisagogi").style.visibility = "visible";
+    }
+    else {
+        document.getElementById("kleida").value = "";
+        document.querySelector("#mouse-click").textContent = "";
+        document.querySelector("#button-insert").style.background = "#e4ece9";
+        document.querySelector("#button-insert").textContent =  "ΚΛΕΙΔΑ";
+        kleida = null;
+    }    
 };
 
 document.querySelector("#ektelesi").addEventListener("click", getkleida);
@@ -41,8 +51,6 @@ function getkleida(){
     kleida = document.getElementById("kleida").value;
     if (kleida.length != 4){
         alert("Προσοχή, Λάθος Κλείδα!!!");
-        document.querySelector("#eisagogi").style.visibility = "hidden";
-        document.querySelector("#button-insert").style.background =  "#e4ece9";
         kleida = null;
     }
     else{        
@@ -58,15 +66,13 @@ function getkleida(){
             if (check == 0) {
                 alert("Προσοχή, Λάθος Κλείδα!!!");
                 kleida = null;
-                document.querySelector("#eisagogi").style.visibility = "hidden";
-                document.querySelector("#button-insert").style.background =  "#e4ece9";
                 break;
             }
         }
         if (check == 1) {
-            alert( `Επιτυχής εισαγωγή Κλείδας. Κλείδα: ${kleida}`);
             document.querySelector("#eisagogi").style.visibility = "hidden";
             document.querySelector("#button-insert").style.background =  "#11cf86";
+            document.querySelector("#button-insert").textContent =  kleida;
         }    
     }   
 }
@@ -74,7 +80,7 @@ function getkleida(){
 
 map.on('pointermove', function(evt){
   var coord = evt.coordinate;
-  var fl = flwgs84toed50(coord[0], coord[1]);
+  var fl = flwgs84toed50(coord[1], coord[0]);
   var UTM = fl2EDMGRS(fl[0], fl[1]);
   var ArmyCoord = UTM[2] + UTM[3] + UTM[4] + UTM[5];
   if (kleida != null) {
@@ -89,15 +95,11 @@ map.on('pointermove', function(evt){
 
 map.on('click', function(evt){
     var coord = evt.coordinate;
-    console.log(coord);
-    var fl = flwgs84toed50(coord[0], coord[1]);
+    var fl = flwgs84toed50(coord[1], coord[0]);
     var UTM = fl2EDMGRS(fl[0], fl[1]);
-    var ArmyCoord = UTM[2] + UTM[3] + UTM[4] + UTM[5];
-    console.log(ArmyCoord);
-    
+    var ArmyCoord = UTM[2] + UTM[3] + UTM[4] + UTM[5];    
     if (kleida != null) {
       var krypto = ektelesiergasias(ArmyCoord);
-      console.log(krypto);
       document.querySelector("#mouse-click").textContent = ArmyCoord + " : " + krypto;
     }
 });
