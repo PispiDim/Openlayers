@@ -76,7 +76,7 @@ var kleidacontrol = (function (Control) {
         else {
             document.getElementById("kleida").value = "";
             document.querySelector("#mouse-click").textContent = "";
-            document.querySelector("#button-insert").style.background = "#e4ece9";
+            // document.querySelector("#button-insert").style.background = "#e4ece9";
             document.querySelector("#button-insert").textContent =  "ΚΛΕΙΔΑ";
             kleida = null;
         }    
@@ -108,8 +108,8 @@ var kleidacontrol = (function (Control) {
             }
             if (check == 1) {
                 document.querySelector("#eisagogi").style.visibility = "hidden";
-                document.querySelector("#button-insert").style.background =  "#11cf86";
-                document.querySelector("#button-insert").textContent =  kleida;
+                // document.querySelector("#button-insert").style.background =  "#11cf86";
+                document.querySelector("#button-insert").textContent = "ΚΛΕΙΔΑ: " + kleida;
             }    
         }   
     }
