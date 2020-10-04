@@ -1,6 +1,3 @@
-* {
-  box-sizing: border-box;
-}
 
 body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -16,37 +13,35 @@ body {
 
 .mouse-position {
   position: absolute;
-  float: right;
   bottom: 40px;
   right: 15px;
 }
 
 .mouse-click {
   position: absolute;
-  float: right;
   top: 20px;
   right: 15px;
 }
 
-
 .button-insert {
   position: absolute;
-  float: right;
   top: 50px;
   right: 15px;
 }
 
 .keimeno {
-  position: relative;
+  position: absolute;
+  top: 50px;
   right: 100px;
 }
 
 .ektelesi {
-  position: relative;
-  right: 50px;
+  position: absolute;
+  top: 80px;
+  right: 145px;
 }
 
-#eisagogi {
+.eisagogi {
   visibility: hidden;
 }
 
