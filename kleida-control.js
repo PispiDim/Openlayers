@@ -67,7 +67,10 @@ var kleidacontrol = (function (Control) {
                         [,'C','F','J','M','','Q','T','W','Z']]; 
 
     kleidacontrol.prototype.emfanisi = function emfanisi(){
-        if (kleida == null){
+        if (document.querySelector("#eisagogi").style.visibility == "visible" && kleida == null){
+            document.querySelector("#eisagogi").style.visibility = "hidden";
+        }
+        else if (kleida == null){
             document.querySelector("#eisagogi").style.visibility = "visible";
         }
         else {
@@ -113,7 +116,7 @@ var kleidacontrol = (function (Control) {
     
     kleidacontrol.prototype.clickandmove = function clickandmove () {
       this.getMap().on('pointermove', function(evt){
-        var coord = evt.coordinate;
+        var coord = ol.proj.toLonLat(evt.coordinate);
         var fl = flwgs84toed50(coord[1], coord[0]);
         var UTM = fl2EDMGRS(fl[0], fl[1]);
         var ArmyCoord = UTM[2] + UTM[3] + UTM[4] + UTM[5];
@@ -128,7 +131,7 @@ var kleidacontrol = (function (Control) {
       });
       
       this.getMap().on('click', function(evt){
-        var coord = evt.coordinate;
+        var coord = ol.proj.toLonLat(evt.coordinate);
         var fl = flwgs84toed50(coord[1], coord[0]);
         var UTM = fl2EDMGRS(fl[0], fl[1]);
         var ArmyCoord = UTM[2] + UTM[3] + UTM[4] + UTM[5];    
