@@ -1,0 +1,59 @@
+
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.map {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.mouse-position {
+  position: absolute;
+  bottom: 40px;
+  right: 15px;
+}
+
+.mouse-click {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+}
+
+.button-insert {
+  position: absolute;
+  top: 50px;
+  right: 15px;
+}
+
+.keimeno {
+  position: absolute;
+  top: 50px;
+  right: 100px;
+}
+
+.ektelesi {
+  position: absolute;
+  top: 80px;
+  right: 145px;
+}
+
+.eisagogi {
+  visibility: hidden;
+}
+
+button {
+  border-radius: 3px;
+  border: 2px solid black;
+  color: darkgreen;
+  font-weight: bold;
+  cursor: pointer;
+  background: #e4ece9;
+}
+
+button:hover {
+  background: #11cf86;
+}
