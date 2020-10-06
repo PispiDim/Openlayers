@@ -119,7 +119,7 @@ function SeePosition(position) {
   var UTM = fl2EDMGRS(fl[0], fl[1]);
   var ArmyCoord = UTM[2] + UTM[3] + UTM[4] + UTM[5];    
   if (kleidacontrol.prototype.kleida.length == 4) var krypto = UTM[1] + " " + kleidacontrol.prototype.ektelesiergasias(ArmyCoord);
-  else krypto = "Insert ΚΛΕΙΔΑ";
+  else krypto = "Εισάγετε ΚΛΕΙΔΑ";
   details.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude +
   "<br>Accuracy: " + position.coords.accuracy +

@@ -4,7 +4,7 @@ var kleidacontrol = (function (Control) {
       var options = opt_options || {};
   
       var buttonkleida = document.createElement('button');
-      buttonkleida.innerHTML = 'ΚΛΕΙΔΑ';
+      buttonkleida.innerHTML = '<img src="images/key.png"\height="20px"\width="20px">';
       buttonkleida.id = 'button-insert';
       buttonkleida.className = "button-insert"; 
     
@@ -16,7 +16,7 @@ var kleidacontrol = (function (Control) {
       elementinput.value = "";
 
       var buttonektelesi = document.createElement('button');
-      buttonektelesi.innerHTML = 'ΕΙΣΑΓΩΓΗ';
+      buttonektelesi.innerHTML = '<img src="images/head.png"\height="20px"\width="20px">';
       buttonektelesi.id = "ektelesi";
       buttonektelesi.className = "ektelesi";
       
@@ -81,7 +81,7 @@ var kleidacontrol = (function (Control) {
             kleidacontrol.prototype.kleida = "";
             document.getElementById("keimeno").value = "";
             document.querySelector("#mouse-click").textContent = "";
-            document.querySelector("#button-insert").textContent =  "ΚΛΕΙΔΑ";
+            document.querySelector("#button-insert").innerHTML = '<img src="images/key.png"\height="20px"\width="20px">';
         }    
     };
 
@@ -95,7 +95,7 @@ var kleidacontrol = (function (Control) {
         let check;
         let localKleida = document.getElementById("keimeno").value;
         if (localKleida.length != 4){
-            document.getElementById("keimeno").value = "Προσοχή, Λάθος Κλείδα!!!";
+            document.getElementById("keimeno").value = "Λάθος!!!";
             localKleida = "";
         }
         else{        
@@ -109,7 +109,7 @@ var kleidacontrol = (function (Control) {
                    }
                 }
                 if (check == 0) {
-                    document.getElementById("keimeno").value = "Προσοχή, Λάθος Κλείδα!!!";
+                    document.getElementById("keimeno").value = "Λάθος!!!";
                     localKleida = "";
                     break;
                 }
