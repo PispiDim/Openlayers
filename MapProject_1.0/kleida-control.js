@@ -34,12 +34,27 @@ var kleidacontrol = (function (Control) {
       elementclick.className = 'mouse-click';
       elementclick.id = 'mouse-click';
 
+      var speechbubble = document.createElement('div');
+      speechbubble.className = 'speechbubble';
+      speechbubble.innerHTML = '<img src="images/speech-bubble.png"\height="50px"\width="50px">';
+
+      var speechtext = document.createElement('div');
+      speechtext.className = 'speechtext';
+      speechtext.innerHTML = 'Λάθος<br> Κλείδα!!!';
+
+      var speech = document.createElement('div');
+      speech.className = 'speech';
+      speech.id = 'speech';
+      speech.appendChild(speechbubble);
+      speech.appendChild(speechtext);
+
       var elementcontainer = document.createElement('div');
       elementcontainer.className = 'container';
       elementcontainer.appendChild(buttonkleida);
       elementcontainer.appendChild(elementeisagogi);
       elementcontainer.appendChild(elementposition);
       elementcontainer.appendChild(elementclick);
+      elementcontainer.appendChild(speech);
         
       Control.call(this, {
         element: elementcontainer,
@@ -73,6 +88,7 @@ var kleidacontrol = (function (Control) {
     kleidacontrol.prototype.emfanisi = function emfanisi(){
         if (document.querySelector("#eisagogi").style.visibility == "visible" && kleidacontrol.prototype.kleida.length != 4){
             document.querySelector("#eisagogi").style.visibility = "hidden";
+            document.querySelector("#speech").style.visibility = "hidden";
         }
         else if (kleidacontrol.prototype.kleida.length != 4){
             document.querySelector("#eisagogi").style.visibility = "visible";
@@ -87,6 +103,11 @@ var kleidacontrol = (function (Control) {
 
     kleidacontrol.prototype.ekatharisi = function(){
         document.getElementById("keimeno").value = "";
+        document.querySelector("#speech").style.visibility = "hidden";
+    }
+
+    kleidacontrol.prototype.errorSpeech = function(){
+        document.querySelector("#speech").style.visibility = "visible";
     }
 
     kleidacontrol.prototype.getkleida = function(){
@@ -95,7 +116,7 @@ var kleidacontrol = (function (Control) {
         let check;
         let localKleida = document.getElementById("keimeno").value;
         if (localKleida.length != 4){
-            document.getElementById("keimeno").value = "Λάθος!!!";
+            kleidacontrol.prototype.errorSpeech();
             localKleida = "";
         }
         else{        
@@ -109,7 +130,7 @@ var kleidacontrol = (function (Control) {
                    }
                 }
                 if (check == 0) {
-                    document.getElementById("keimeno").value = "Λάθος!!!";
+                    kleidacontrol.prototype.errorSpeech();
                     localKleida = "";
                     break;
                 }
