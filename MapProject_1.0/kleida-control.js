@@ -127,6 +127,7 @@ var kleidacontrol = (function(Control) {
         if (document.querySelector(".myLocationText").innerHTML.length != 0) {
             document.querySelector(".myLocationText").innerHTML = "";
             document.querySelector(".myLocationText").style.visibility = "hidden";
+            map.removeLayer(this.geolocationPoint);
             map.getView().setCenter([0, 0]);
             map.getView().setZoom(3);
         } else {
@@ -157,7 +158,7 @@ var kleidacontrol = (function(Control) {
 
     kleidacontrol.prototype.CenterMap = function(long, lat) {
         map.getView().setCenter(ol.proj.transform([long, lat], 'EPSG:4326', 'EPSG:3857'));
-        map.getView().setZoom(5);
+        map.getView().setZoom(5.5);
     }
 
     kleidacontrol.prototype.positionpoint = function(position) {
@@ -166,7 +167,7 @@ var kleidacontrol = (function(Control) {
             name: 'MyPosition',
         });
 
-        const point = new ol.layer.Vector({
+        this.geolocationPoint = new ol.layer.Vector({
             source: new ol.source.Vector({
                 features: [iconFeature]
             }),
@@ -180,7 +181,7 @@ var kleidacontrol = (function(Control) {
             })
         })
         
-        map.addLayer(point);
+        map.addLayer(this.geolocationPoint);
     }
 
     kleidacontrol.prototype.ekatharisi = function() {
@@ -234,7 +235,7 @@ var kleidacontrol = (function(Control) {
             } else {
                 document.querySelector("#mouse-position").textContent = UTM[1] + " " + UTM[2] + UTM[3] + " " + UTM[4] + " " + UTM[5];
                 document.querySelector("#mouse-click").textContent = "";
-                document.querySelector("#mouse-click").style.visibility = "visible";
+                document.querySelector("#mouse-click").style.visibility = "hidden";
             }
         });
 

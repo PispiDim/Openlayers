@@ -2,92 +2,13 @@ var dropdownmenu = (function(Control) {
     function dropdownmenu(opt_options) {
         var options = opt_options || {};
 
-        var OSMStandard = document.createElement('input');
-        OSMStandard.type = "radio";
-        OSMStandard.name = "baseLayerRadioButton";
-        OSMStandard.className = "baseLayerRadioButton";
-        OSMStandard.id = "OSMStandard";
-        OSMStandard.value = "OSMStandard";
-        OSMStandard.checked = "true";
-
-        var OSMHumanitarian = document.createElement('input');
-        OSMHumanitarian.type = "radio";
-        OSMHumanitarian.name = "baseLayerRadioButton";
-        OSMHumanitarian.className = "baseLayerRadioButton";
-        OSMHumanitarian.value = "OSMHumanitarian";
-
-        var BingMaps = document.createElement('input');
-        BingMaps.type = "radio";
-        BingMaps.name = "baseLayerRadioButton";
-        BingMaps.className = "baseLayerRadioButton";
-        BingMaps.value = "BingMaps";
-
-        var CartoDarkAll = document.createElement('input');
-        CartoDarkAll.type = "radio";
-        CartoDarkAll.name = "baseLayerRadioButton";
-        CartoDarkAll.className = "baseLayerRadioButton";
-        CartoDarkAll.value = "CartoDarkAll";
-
-        var StamenTerrainWithLabels = document.createElement('input');
-        StamenTerrainWithLabels.type = "radio";
-        StamenTerrainWithLabels.name = "baseLayerRadioButton";
-        StamenTerrainWithLabels.className = "baseLayerRadioButton";
-        StamenTerrainWithLabels.value = "StamenTerrainWithLabels";
-
-        var StamenTerrain = document.createElement('input');
-        StamenTerrain.type = "radio";
-        StamenTerrain.name = "baseLayerRadioButton";
-        StamenTerrain.className = "baseLayerRadioButton";
-        StamenTerrain.value = "StamenTerrain";
-
-        var OSMStandardLabels = document.createElement('div');
-        OSMStandardLabels.className = "LayerLabels";
-        OSMStandardLabels.id = "OSMStandardLabels";
-        OSMStandardLabels.innerHTML = "OSM Standard";
-
-        var OSMHumanitarianLabels = document.createElement('div');
-        OSMHumanitarianLabels.className = "LayerLabels";
-        OSMHumanitarianLabels.id = "OSMHumanitarianLabels";
-        OSMHumanitarianLabels.innerHTML = "OSM Humanitarian";
-
-        var BingMapsLabels = document.createElement('div');
-        BingMapsLabels.className = "LayerLabels";
-        BingMapsLabels.id = "BingMapsLabels";
-        BingMapsLabels.innerHTML = "Bing Maps";
-
-        var CartoDarkAllLabels = document.createElement('div');
-        CartoDarkAllLabels.className = "LayerLabels";
-        CartoDarkAllLabels.id = "CartoDarkAllLabels";
-        CartoDarkAllLabels.innerHTML = "Carto Dark All";
-
-        var StamenTerrainWithLabelsLabels = document.createElement('div');
-        StamenTerrainWithLabelsLabels.className = "LayerLabels";
-        StamenTerrainWithLabelsLabels.id = "StamenTerrainWithLabelsLabels";
-        StamenTerrainWithLabelsLabels.innerHTML = "Stamen Terrain With Labels";
-
-        var StamenTerrainLabels = document.createElement('div');
-        StamenTerrainLabels.className = "LayerLabels";
-        StamenTerrainLabels.id = "StamenTerrainLabels";
-        StamenTerrainLabels.innerHTML = "Stamen Terrain";
-
         var dropdowncontent = document.createElement('div');
         dropdowncontent.className = 'dropdowncontent';
         dropdowncontent.id = 'myDropdown';
-        dropdowncontent.appendChild(OSMStandard);
-        dropdowncontent.appendChild(OSMHumanitarian);
-        dropdowncontent.appendChild(BingMaps);
-        dropdowncontent.appendChild(CartoDarkAll);
-        dropdowncontent.appendChild(StamenTerrainWithLabels);
-        dropdowncontent.appendChild(StamenTerrain);
-        dropdowncontent.appendChild(OSMStandardLabels);
-        dropdowncontent.appendChild(OSMHumanitarianLabels);
-        dropdowncontent.appendChild(BingMapsLabels);
-        dropdowncontent.appendChild(CartoDarkAllLabels);
-        dropdowncontent.appendChild(StamenTerrainWithLabelsLabels);
-        dropdowncontent.appendChild(StamenTerrainLabels);
+        dropdowncontent.innerHTML = "<input id ='ddddd' type='radio' name='baseLayerRadioButton' value='OSMStandard' checked>OSM Standard<br> <input type='radio' name='baseLayerRadioButton' value='OSMHumanitarian'>OSM Humanitarian<br><input type='radio' name='baseLayerRadioButton' value='BingMaps'>Bing Maps<br> <input type='radio' name='baseLayerRadioButton' value='CartoDarkAll'>Carto Dark All<br> <input type='radio' name='baseLayerRadioButton' value='StamenTerrainWithLabels'>Stamen Terrain With Labels<br> <input type='radio' name='baseLayerRadioButton' value='StamenTerrain'>Stamen Terrain<br>";
 
         var dropBotton = document.createElement('button');
-        dropBotton.innerHTML = '<img src="images/layers.png"\height="20px"\width="20px">';
+        dropBotton.innerHTML = 'L';
         dropBotton.className = "dropbtn";
 
 
