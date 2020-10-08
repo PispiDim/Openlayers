@@ -1,7 +1,6 @@
 "use strict";
                   
-var map = new ol.Map({
-    controls: ol.control.defaults().extend([new kleidacontrol()]),  
+var map = new ol.Map({  
     layers: [
         new ol.layer.Tile({
         source: new ol.source.OSM(),
@@ -12,3 +11,5 @@ var map = new ol.Map({
         zoom: 6 
     }),
 });
+map.addControl(new kleidacontrol());
+map.addControl(new dropdownmenu());

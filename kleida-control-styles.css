@@ -1,0 +1,82 @@
+
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.map {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.mouse-position {
+  position: absolute;
+  bottom: 40px;
+  right: 15px;
+}
+
+.mouse-click {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+}
+
+.button-insert {
+  position: absolute;
+  height: 26px;
+  top: 50px;
+  right: 15px;
+}
+
+.keimeno {
+  height: 26px;
+  width: 70px;
+  position: absolute;
+  top: 50px;
+  right: 70px;
+}
+
+.speechbubble {
+  position: absolute;
+  height: 26px;
+  top: 3px;
+  right: 130px;
+}
+
+.speechtext {
+  font-size: 11px;
+  position: absolute;
+  height: 26px;
+  top: 10px;
+  right: 133px;
+}
+
+.ektelesi {
+  position: absolute;
+  height: 26px;
+  top: 50px;
+  right: 145px;
+}
+
+.speech {
+  visibility: hidden;
+}
+
+.eisagogi {
+  visibility: hidden;
+}
+
+button {
+  border-radius: 3px;
+  border: 2px solid black;
+  color: darkgreen;
+  font-weight: bold;
+  cursor: pointer;
+  background: #e4ece9;
+}
+
+button:hover {
+  background: #11cf86;
+}

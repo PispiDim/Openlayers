@@ -1,82 +1,110 @@
-
-body {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+/* body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+} */
 
 .map {
-  position: relative;
-  margin: 0;
-  padding: 0;
+    position: relative;
+    margin: 0;
+    padding: 0;
 }
 
 .mouse-position {
-  position: absolute;
-  bottom: 40px;
-  right: 15px;
+    font-size: 14px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #11cf868e;
+    position: absolute;
+    bottom: 40px;
+    right: 15px;
+    padding: 3px;
+    border-radius: 3px;
 }
 
 .mouse-click {
-  position: absolute;
-  top: 20px;
-  right: 15px;
+    font-size: 13px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #11cf868e;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    padding: 3px;
+    border-radius: 3px;
+    visibility: hidden;
 }
 
 .button-insert {
-  position: absolute;
-  height: 26px;
-  top: 50px;
-  right: 15px;
+    position: absolute;
+    height: 26px;
+    top: 50px;
+    right: 15px;
 }
 
 .keimeno {
-  height: 26px;
-  width: 70px;
-  position: absolute;
-  top: 50px;
-  right: 70px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    visibility: hidden;
+    height: 26px;
+    width: 70px;
+    position: absolute;
+    top: 50px;
+    right: 70px;
 }
 
 .speechbubble {
-  position: absolute;
-  height: 26px;
-  top: 3px;
-  right: 130px;
+    position: absolute;
+    height: 26px;
+    top: 3px;
+    right: 130px;
 }
 
 .speechtext {
-  font-size: 11px;
-  position: absolute;
-  height: 26px;
-  top: 10px;
-  right: 133px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 11px;
+    position: absolute;
+    height: 26px;
+    top: 10px;
+    right: 133px;
 }
 
 .ektelesi {
-  position: absolute;
-  height: 26px;
-  top: 50px;
-  right: 145px;
+    visibility: hidden;
+    position: absolute;
+    height: 26px;
+    top: 50px;
+    right: 145px;
+}
+
+.myLocation {
+    position: absolute;
+    height: 26px;
+    top: 90px;
+    right: 15px;
+}
+
+.myLocationText {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 12px;
+    position: absolute;
+    left: 50px;
+    background-color: #11cf868e;
+    padding: 5px;
+    border-radius: 5px;
+    visibility: hidden;
 }
 
 .speech {
-  visibility: hidden;
-}
-
-.eisagogi {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 button {
-  border-radius: 3px;
-  border: 2px solid black;
-  color: darkgreen;
-  font-weight: bold;
-  cursor: pointer;
-  background: #e4ece9;
+    border-radius: 3px;
+    border: 2px solid black;
+    color: darkgreen;
+    font-weight: bold;
+    cursor: pointer;
+    background: #e4ece9;
 }
 
 button:hover {
-  background: #11cf86;
+    background: #11cf86;
 }
