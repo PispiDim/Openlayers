@@ -15,4 +15,4 @@ const map = new ol.Map({
 })
 
 map.addControl(new kleidacontrol());
-map.addControl(new dropdownmenu());
+map.addControl(new dropdownLayersMenu());

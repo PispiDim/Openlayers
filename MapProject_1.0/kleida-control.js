@@ -128,8 +128,8 @@ var kleidacontrol = (function(Control) {
             document.querySelector(".myLocationText").innerHTML = "";
             document.querySelector(".myLocationText").style.visibility = "hidden";
             map.removeLayer(this.geolocationPoint);
-            map.getView().setCenter([0, 0]);
-            map.getView().setZoom(3);
+            // map.getView().setCenter([0, 0]);
+            // map.getView().setZoom(3);
         } else {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(kleidacontrol.prototype.SeePosition);

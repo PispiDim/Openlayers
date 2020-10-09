@@ -29,7 +29,7 @@
     position: relative;
     display: inline-block;
     font-size: 13px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -50,11 +50,11 @@
 
 /* Links inside the dropdown */
 
-.baseLayerRadioButton {
+.dropdowncontent > input {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
+    /* display: block; */
     cursor: pointer;
 }
 

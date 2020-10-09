@@ -1,11 +1,16 @@
-var dropdownmenu = (function(Control) {
-    function dropdownmenu(opt_options) {
+var dropdownLayersMenu = (function(Control) {
+    function dropdownLayersMenu(opt_options) {
         var options = opt_options || {};
 
         var dropdowncontent = document.createElement('div');
         dropdowncontent.className = 'dropdowncontent';
         dropdowncontent.id = 'myDropdown';
-        dropdowncontent.innerHTML = "<input id ='ddddd' type='radio' name='baseLayerRadioButton' value='OSMStandard' checked>OSM Standard<br> <input type='radio' name='baseLayerRadioButton' value='OSMHumanitarian'>OSM Humanitarian<br><input type='radio' name='baseLayerRadioButton' value='BingMaps'>Bing Maps<br> <input type='radio' name='baseLayerRadioButton' value='CartoDarkAll'>Carto Dark All<br> <input type='radio' name='baseLayerRadioButton' value='StamenTerrainWithLabels'>Stamen Terrain With Labels<br> <input type='radio' name='baseLayerRadioButton' value='StamenTerrain'>Stamen Terrain<br>";
+        dropdowncontent.innerHTML = "<input type='radio' name='baseLayerRadioButton' value='OSMStandard' checked='true'>OSM Standard<br>\
+                                     <input type='radio' name='baseLayerRadioButton' value='OSMHumanitarian'>OSM Humanitarian<br>\
+                                     <input type='radio' name='baseLayerRadioButton' value='BingMaps'>Bing Maps<br>\
+                                     <input type='radio' name='baseLayerRadioButton' value='CartoDarkAll'>Carto Dark All<br>\
+                                     <input type='radio' name='baseLayerRadioButton' value='StamenTerrainWithLabels'>Stamen Terrain With Labels<br>\
+                                     <input type='radio' name='baseLayerRadioButton' value='StamenTerrain'>Stamen Terrain<br>";
 
         var dropBotton = document.createElement('button');
         dropBotton.innerHTML = 'L';
@@ -28,15 +33,15 @@ var dropdownmenu = (function(Control) {
 
     }
 
-    if (Control) dropdownmenu.__proto__ = Control;
-    dropdownmenu.prototype = Object.create(Control && Control.prototype);
-    dropdownmenu.prototype.constructor = dropdownmenu;
+    if (Control) dropdownLayersMenu.__proto__ = Control;
+    dropdownLayersMenu.prototype = Object.create(Control && Control.prototype);
+    dropdownLayersMenu.prototype.constructor = dropdownLayersMenu;
 
-    dropdownmenu.prototype.myFunction = function() {
+    dropdownLayersMenu.prototype.myFunction = function() {
         document.getElementById("myDropdown").classList.toggle("show");
     }
 
-    dropdownmenu.prototype.clickandhide = function(event) {
+    dropdownLayersMenu.prototype.clickandhide = function(event) {
         if (!event.target.matches('.dropbtn')) {
             var dropdowns = document.getElementsByClassName("dropdowncontent");
             var i;
@@ -49,7 +54,7 @@ var dropdownmenu = (function(Control) {
         }
     }
 
-    dropdownmenu.prototype.BaseLayersInit = function() {
+    dropdownLayersMenu.prototype.BaseLayersInit = function() {
         // Base Layers
         // Openstreet Map Standard
         const openstreetMapStandard = new ol.layer.Tile({
@@ -133,6 +138,6 @@ var dropdownmenu = (function(Control) {
         }
     }
 
-    return dropdownmenu;
+    return dropdownLayersMenu;
 
 }(ol.control.Control));
