@@ -1,45 +1,45 @@
-var kleidacontrol = (function(Control) {
-    function kleidacontrol(opt_options) {
+var kleidaControl = (function(Control) {
+    function kleidaControl(opt_options) {
         var options = opt_options || {};
 
-        var buttonkleida = document.createElement('button');
-        buttonkleida.innerHTML = '<img src="images/key.png"\height="20px"\width="20px">';
-        buttonkleida.id = 'button-insert';
-        buttonkleida.className = "button-insert";
+        var buttonKleida = document.createElement('button');
+        buttonKleida.innerHTML = '<img src="images/key.png"\height="20px"\width="20px">';
+        buttonKleida.id = 'buttonKleida';
+        buttonKleida.className = "buttonKleida";
 
-        var elementinput = document.createElement('input');
-        elementinput.type = "text";
-        elementinput.placeholder = "πχ:1ΑΡΦ";
-        elementinput.id = "keimeno";
-        elementinput.className = "keimeno";
-        elementinput.value = "";
+        var keimenoKleidasInput = document.createElement('input');
+        keimenoKleidasInput.type = "text";
+        keimenoKleidasInput.placeholder = "πχ:1ΑΡΦ";
+        keimenoKleidasInput.id = "keimenoKleidasInput";
+        keimenoKleidasInput.className = "keimenoKleidasInput";
+        keimenoKleidasInput.value = "";
 
-        var buttonektelesi = document.createElement('button');
-        buttonektelesi.innerHTML = '<img src="images/head.png"\height="20px"\width="20px">';
-        buttonektelesi.id = "ektelesi";
-        buttonektelesi.className = "ektelesi";
+        var buttonEktelesiKrypto = document.createElement('button');
+        buttonEktelesiKrypto.innerHTML = '<img src="images/head.png"\height="20px"\width="20px">';
+        buttonEktelesiKrypto.id = "buttonEktelesiKrypto";
+        buttonEktelesiKrypto.className = "buttonEktelesiKrypto";
 
-        var elementposition = document.createElement('div');
-        elementposition.className = 'mouse-position';
-        elementposition.id = 'mouse-position';
+        var mousePositionText = document.createElement('div');
+        mousePositionText.className = 'mousePositionText';
+        mousePositionText.id = 'mousePositionText';
 
-        var elementclick = document.createElement('div');
-        elementclick.className = 'mouse-click';
-        elementclick.id = 'mouse-click';
+        var mouseClickText = document.createElement('div');
+        mouseClickText.className = 'mouseClickText';
+        mouseClickText.id = 'mouseClickText';
 
-        var speechbubble = document.createElement('div');
-        speechbubble.className = 'speechbubble';
-        speechbubble.innerHTML = '<img src="images/speech-bubble.png"\height="50px"\width="50px">';
+        var errorSpeechBubble = document.createElement('div');
+        errorSpeechBubble.className = 'errorSpeechBubble';
+        errorSpeechBubble.innerHTML = '<img src="images/speech-bubble.png"\height="50px"\width="50px">';
 
-        var speechtext = document.createElement('div');
-        speechtext.className = 'speechtext';
-        speechtext.innerHTML = 'Λάθος<br> Κλείδα!!!';
+        var errorSpeechText = document.createElement('div');
+        errorSpeechText.className = 'errorSpeechText';
+        errorSpeechText.innerHTML = 'Λάθος<br> Κλείδα!!!';
 
-        var speech = document.createElement('div');
-        speech.className = 'speech';
-        speech.id = 'speech';
-        speech.appendChild(speechbubble);
-        speech.appendChild(speechtext);
+        var errorSpeechNotification = document.createElement('div');
+        errorSpeechNotification.className = 'errorSpeechNotification';
+        errorSpeechNotification.id = 'errorSpeechNotification';
+        errorSpeechNotification.appendChild(errorSpeechBubble);
+        errorSpeechNotification.appendChild(errorSpeechText);
 
         var buttonLocation = document.createElement('button');
         buttonLocation.innerHTML = '<img src="images/map-position.png"\height="20px"\width="20px">';
@@ -53,12 +53,12 @@ var kleidacontrol = (function(Control) {
 
         var elementcontainer = document.createElement('div');
         elementcontainer.className = 'container';
-        elementcontainer.appendChild(buttonkleida);
-        elementcontainer.appendChild(elementinput);
-        elementcontainer.appendChild(buttonektelesi);
-        elementcontainer.appendChild(elementposition);
-        elementcontainer.appendChild(elementclick);
-        elementcontainer.appendChild(speech);
+        elementcontainer.appendChild(buttonKleida);
+        elementcontainer.appendChild(keimenoKleidasInput);
+        elementcontainer.appendChild(buttonEktelesiKrypto);
+        elementcontainer.appendChild(mousePositionText);
+        elementcontainer.appendChild(mouseClickText);
+        elementcontainer.appendChild(errorSpeechNotification);
         elementcontainer.appendChild(buttonLocation);
         elementcontainer.appendChild(myLocationText);
 
@@ -68,62 +68,62 @@ var kleidacontrol = (function(Control) {
             target: options.target,
         });
 
-        buttonkleida.addEventListener('click', this.emfanisi.bind(this), false);
-        buttonektelesi.addEventListener('click', this.getkleida.bind(this), false);
-        window.addEventListener('load', this.clickandmove.bind(this), false);
-        elementinput.addEventListener('click', this.ekatharisi.bind(this), false);
+        buttonKleida.addEventListener('click', this.emfanisi.bind(this), false);
+        buttonEktelesiKrypto.addEventListener('click', this.getKleida.bind(this), false);
+        window.addEventListener('load', this.mouseClickAndMouseMove.bind(this), false);
+        keimenoKleidasInput.addEventListener('click', this.ekatharisi.bind(this), false);
         buttonLocation.addEventListener('click', this.getLocation.bind(this), false);
-        elementinput.addEventListener('keyup', this.emfanisiBtnEisagogis.bind(this), false);
+        keimenoKleidasInput.addEventListener('keyup', this.emfanisiBtnEisagogis.bind(this), false);
 
     }
 
-    if (Control) kleidacontrol.__proto__ = Control;
-    kleidacontrol.prototype = Object.create(Control && Control.prototype);
-    kleidacontrol.prototype.constructor = kleidacontrol;
+    if (Control) kleidaControl.__proto__ = Control;
+    kleidaControl.prototype = Object.create(Control && Control.prototype);
+    kleidaControl.prototype.constructor = kleidaControl;
 
-    kleidacontrol.prototype.kleida = "";
-    kleidacontrol.prototype.thesi = "";
+    kleidaControl.prototype.kleida = "";
+    kleidaControl.prototype.thesi = "";
 
-    kleidacontrol.prototype.koikloiKleidas = [
+    kleidaControl.prototype.koikloiKleidas = [
         ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
         ['Α', 'Ε', 'Ι', 'Η', 'Γ', 'Ζ', 'Β', 'Θ', 'Δ', 'Κ'],
         ['Λ', 'Ρ', 'Ν', 'Π', 'Υ', 'Ο', 'Σ', 'Μ', 'Ξ', 'Τ'],
         ['Φ', '', 'U', 'Ψ', '', 'J', 'Χ', 'V', '', 'Ω']
     ];
 
-    kleidacontrol.prototype.koiklosStatheres = [
+    kleidaControl.prototype.koiklosStatheres = [
         ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
         [, 'A', 'D', 'G', 'K', 'N', 'O', 'R', 'U', 'X'],
         [, 'B', 'E', 'H', 'L', '', 'P', 'S', 'V', 'Y'],
         [, 'C', 'F', 'J', 'M', '', 'Q', 'T', 'W', 'Z']
     ];
 
-    kleidacontrol.prototype.emfanisi = function() {
-        if (document.querySelector("#keimeno").style.visibility == "visible" && kleidacontrol.prototype.kleida.length != 4) {
-            document.querySelector("#keimeno").style.visibility = "hidden";
-            document.querySelector("#ektelesi").style.visibility = "hidden";
-            document.querySelector("#speech").style.visibility = "hidden";
-        } else if (kleidacontrol.prototype.kleida.length != 4) {
-            document.querySelector("#keimeno").style.visibility = "visible";
+    kleidaControl.prototype.emfanisi = function() {
+        if (document.querySelector("#keimenoKleidasInput").style.visibility == "visible" && kleidaControl.prototype.kleida.length != 4) {
+            document.querySelector("#keimenoKleidasInput").style.visibility = "hidden";
+            document.querySelector("#buttonEktelesiKrypto").style.visibility = "hidden";
+            document.querySelector("#errorSpeechNotification").style.visibility = "hidden";
+        } else if (kleidaControl.prototype.kleida.length != 4) {
+            document.querySelector("#keimenoKleidasInput").style.visibility = "visible";
         } else {
-            kleidacontrol.prototype.kleida = "";
-            document.getElementById("keimeno").value = "";
-            document.querySelector("#mouse-click").textContent = "";
-            document.querySelector("#mouse-click").style.visibility = "visible";
-            document.querySelector("#button-insert").innerHTML = '<img src="images/key.png"\height="20px"\width="20px">';
+            kleidaControl.prototype.kleida = "";
+            document.getElementById("keimenoKleidasInput").value = "";
+            document.querySelector("#mouseClickText").textContent = "";
+            document.querySelector("#mouseClickText").style.visibility = "visible";
+            document.querySelector("#buttonKleida").innerHTML = '<img src="images/key.png"\height="20px"\width="20px">';
         }
     };
 
-    kleidacontrol.prototype.emfanisiBtnEisagogis = function() {
-        var localLength = document.getElementById("keimeno").value.length;
+    kleidaControl.prototype.emfanisiBtnEisagogis = function() {
+        var localLength = document.getElementById("keimenoKleidasInput").value.length;
         if (localLength == 4) {
-            document.querySelector("#ektelesi").style.visibility = "visible";
+            document.querySelector("#buttonEktelesiKrypto").style.visibility = "visible";
         } else {
-            document.querySelector("#ektelesi").style.visibility = "hidden";
+            document.querySelector("#buttonEktelesiKrypto").style.visibility = "hidden";
         }
     }
 
-    kleidacontrol.prototype.getLocation = function() {
+    kleidaControl.prototype.getLocation = function() {
         if (document.querySelector(".myLocationText").innerHTML.length != 0) {
             document.querySelector(".myLocationText").innerHTML = "";
             document.querySelector(".myLocationText").style.visibility = "hidden";
@@ -132,18 +132,18 @@ var kleidacontrol = (function(Control) {
             // map.getView().setZoom(3);
         } else {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(kleidacontrol.prototype.SeePosition);
+                navigator.geolocation.getCurrentPosition(kleidaControl.prototype.SeePosition);
             } else {
                 document.querySelector("#myLocationText").textContent = "Geolocation is not supported by this browser.";
             }
         }
     }
 
-    kleidacontrol.prototype.SeePosition = function(position) {
+    kleidaControl.prototype.SeePosition = function(position) {
         var fl = flwgs84toed50(position.coords.latitude, position.coords.longitude);
         var UTM = fl2EDMGRS(fl[0], fl[1]);
         var ArmyCoord = UTM[2] + UTM[3] + UTM[4] + UTM[5];
-        if (kleidacontrol.prototype.kleida.length == 4) var krypto = UTM[1] + " " + kleidacontrol.prototype.ektelesiergasias(ArmyCoord);
+        if (kleidaControl.prototype.kleida.length == 4) var krypto = UTM[1] + " " + kleidaControl.prototype.ektelesiKryptografisis(ArmyCoord);
         else krypto = "Εισάγετε ΚΛΕΙΔΑ";
         document.querySelector(".myLocationText").style.visibility = "visible";
         document.querySelector(".myLocationText").innerHTML = "Latitude: " + position.coords.latitude +
@@ -152,16 +152,16 @@ var kleidacontrol = (function(Control) {
             "<br>ArmyCoord: " + UTM[1] + " " + UTM[2] + UTM[3] + " " + UTM[4] + " " + UTM[5] +
             "<br>Krypto: " + krypto;
 
-        kleidacontrol.prototype.CenterMap(position.coords.longitude, position.coords.latitude);
-        kleidacontrol.prototype.positionpoint(position);
+            kleidaControl.prototype.CenterMap(position.coords.longitude, position.coords.latitude);
+            kleidaControl.prototype.positionpoint(position);
     }
 
-    kleidacontrol.prototype.CenterMap = function(long, lat) {
+    kleidaControl.prototype.CenterMap = function(long, lat) {
         map.getView().setCenter(ol.proj.transform([long, lat], 'EPSG:4326', 'EPSG:3857'));
         map.getView().setZoom(5.5);
     }
 
-    kleidacontrol.prototype.positionpoint = function(position) {
+    kleidaControl.prototype.positionpoint = function(position) {
         const iconFeature = new ol.Feature({
             geometry: new ol.geom.Point(ol.proj.fromLonLat([position.coords.longitude, position.coords.latitude])),
             name: 'MyPosition',
@@ -184,21 +184,21 @@ var kleidacontrol = (function(Control) {
         map.addLayer(this.geolocationPoint);
     }
 
-    kleidacontrol.prototype.ekatharisi = function() {
-        document.getElementById("keimeno").value = "";
-        document.querySelector("#speech").style.visibility = "hidden";
-        document.querySelector("#ektelesi").style.visibility = "hidden";
+    kleidaControl.prototype.ekatharisi = function() {
+        document.getElementById("keimenoKleidasInput").value = "";
+        document.querySelector("#errorSpeechNotification").style.visibility = "hidden";
+        document.querySelector("#buttonEktelesiKrypto").style.visibility = "hidden";
     }
 
-    kleidacontrol.prototype.errorSpeech = function() {
-        document.querySelector("#speech").style.visibility = "visible";
+    kleidaControl.prototype.errorSpeech = function() {
+        document.querySelector("#errorSpeechNotification").style.visibility = "visible";
     }
 
-    kleidacontrol.prototype.getkleida = function() {
-        const koikloi = kleidacontrol.prototype.koikloiKleidas;
+    kleidaControl.prototype.getKleida = function() {
+        const koikloi = kleidaControl.prototype.koikloiKleidas;
         let localThesi = "";
         let check;
-        let localKleida = document.getElementById("keimeno").value;
+        let localKleida = document.getElementById("keimenoKleidasInput").value;
         for (var i = 0; i < 4; i++) {
             check = 0;
             for (var j = 0; j < 10; j++) {
@@ -209,33 +209,33 @@ var kleidacontrol = (function(Control) {
                 }
             }
             if (check == 0) {
-                kleidacontrol.prototype.errorSpeech();
+                kleidaControl.prototype.errorSpeech();
                 localKleida = "";
                 break;
             }
         }
         if (check == 1) {
-            document.querySelector("#keimeno").style.visibility = "hidden";
-            document.querySelector("#ektelesi").style.visibility = "hidden";
-            document.querySelector("#button-insert").textContent = "ΚΛΕΙΔΑ: " + localKleida;
-            kleidacontrol.prototype.thesi = localThesi;
-            kleidacontrol.prototype.kleida = localKleida;
+            document.querySelector("#keimenoKleidasInput").style.visibility = "hidden";
+            document.querySelector("#buttonEktelesiKrypto").style.visibility = "hidden";
+            document.querySelector("#buttonKleida").textContent = "ΚΛΕΙΔΑ: " + localKleida;
+            kleidaControl.prototype.thesi = localThesi;
+            kleidaControl.prototype.kleida = localKleida;
         }
     }
 
-    kleidacontrol.prototype.clickandmove = function() {
+    kleidaControl.prototype.mouseClickAndMouseMove = function() {
         this.getMap().on('pointermove', function(evt) {
             var coord = ol.proj.toLonLat(evt.coordinate);
             var fl = flwgs84toed50(coord[1], coord[0]);
             var UTM = fl2EDMGRS(fl[0], fl[1]);
             var ArmyCoord = UTM[2] + UTM[3] + UTM[4] + UTM[5];
-            if (kleidacontrol.prototype.kleida.length == 4) {
-                var krypto = kleidacontrol.prototype.ektelesiergasias(ArmyCoord);
-                document.querySelector("#mouse-position").textContent = UTM[1] + " " + krypto;
+            if (kleidaControl.prototype.kleida.length == 4) {
+                var krypto = kleidaControl.prototype.ektelesiKryptografisis(ArmyCoord);
+                document.querySelector("#mousePositionText").textContent = UTM[1] + " " + krypto;
             } else {
-                document.querySelector("#mouse-position").textContent = UTM[1] + " " + UTM[2] + UTM[3] + " " + UTM[4] + " " + UTM[5];
-                document.querySelector("#mouse-click").textContent = "";
-                document.querySelector("#mouse-click").style.visibility = "hidden";
+                document.querySelector("#mousePositionText").textContent = UTM[1] + " " + UTM[2] + UTM[3] + " " + UTM[4] + " " + UTM[5];
+                document.querySelector("#mouseClickText").textContent = "";
+                document.querySelector("#mouseClickText").style.visibility = "hidden";
             }
         });
 
@@ -244,19 +244,19 @@ var kleidacontrol = (function(Control) {
             var fl = flwgs84toed50(coord[1], coord[0]);
             var UTM = fl2EDMGRS(fl[0], fl[1]);
             var ArmyCoord = UTM[2] + UTM[3] + UTM[4] + UTM[5];
-            if (kleidacontrol.prototype.kleida.length == 4) {
-                var krypto = kleidacontrol.prototype.ektelesiergasias(ArmyCoord);
-                document.querySelector("#mouse-click").style.visibility = "visible";
-                document.querySelector("#mouse-click").textContent = UTM[1] + " " + UTM[2] + UTM[3] + " " + UTM[4] + " " + UTM[5] + " : " + UTM[1] + " " + krypto;
+            if (kleidaControl.prototype.kleida.length == 4) {
+                var krypto = kleidaControl.prototype.ektelesiKryptografisis(ArmyCoord);
+                document.querySelector("#mouseClickText").style.visibility = "visible";
+                document.querySelector("#mouseClickText").textContent = UTM[1] + " " + UTM[2] + UTM[3] + " " + UTM[4] + " " + UTM[5] + " : " + UTM[1] + " " + krypto;
             }
         });
     };
 
-    kleidacontrol.prototype.ektelesiergasias = function(syntetagmeni) {
-        const koikloi = kleidacontrol.prototype.koikloiKleidas;
-        const statheres = kleidacontrol.prototype.koiklosStatheres;
-        let thesi = kleidacontrol.prototype.thesi;
-        let kleida = kleidacontrol.prototype.kleida;
+    kleidaControl.prototype.ektelesiKryptografisis = function(syntetagmeni) {
+        const koikloi = kleidaControl.prototype.koikloiKleidas;
+        const statheres = kleidaControl.prototype.koiklosStatheres;
+        let thesi = kleidaControl.prototype.thesi;
+        let kleida = kleidaControl.prototype.kleida;
         var kryptografisi = "";
         let check, count;
         for (var k = 0; k < syntetagmeni.length; k++) {
@@ -367,5 +367,5 @@ var kleidacontrol = (function(Control) {
         }
         return kryptografisi;
     }
-    return kleidacontrol;
+    return kleidaControl;
 }(ol.control.Control));

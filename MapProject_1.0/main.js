@@ -14,5 +14,5 @@ const map = new ol.Map({
   controls: ol.control.defaults({attribution: false}).extend([attributionControl]) 
 })
 
-map.addControl(new kleidacontrol());
+map.addControl(new kleidaControl());
 map.addControl(new dropdownLayersMenu());
